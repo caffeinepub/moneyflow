@@ -1,0 +1,345 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Production-ready full-stack personal finance management platform with secure JWT authentication, income/expense tracking, budget management, financial analytics, and modern responsive UI",
+  "architectural_notes": [
+    "Tech stack: React (Vite/Next.js) + TypeScript, Tailwind CSS + Framer Motion, Node.js + Express, MongoDB + Mongoose",
+    "Clean MVC architecture with RESTful API structure",
+    "JWT authentication: access + refresh tokens stored in HTTP-only secure cookies",
+    "MongoDB schemas: Users, Income, Expenses with Mongoose relationships (User → Income/Expenses)",
+    "Centralized error handling middleware",
+    "Input validation using Joi or Zod",
+    "Environment variables for JWT secret & MongoDB URI",
+    "Folder structure: controllers, routes, models, middleware",
+    "Deployment: MongoDB Atlas + Render/Vercel",
+    "Portfolio-ready with README, setup & deployment instructions"
+  ],
+  "known_issues": [
+    "Chart displays '0' over income visualization"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-implement-user-authentication-system-with-internet-identity-integration-for-secure-login-and-registration-ensuring-each-user-can-only-access-their-own-financial-data",
+      "title": "Implement user authentication system with Internet Identity integration for secure login and registration, ensuring each user can only access their own financial data",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-income-management-functionality-allowing-users-to-add-update-and-delete-income-entries-with-predefined-categories-including-salary-business-investments-extra-income-and-deposits",
+      "title": "Create income management functionality allowing users to add, update, and delete income entries with predefined categories including Salary, Business, Investments, Extra income, and Deposits",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-balance-calculation-displaying-total-income-total-expenses-and-current-balance-income-expenses-with-real-time-updates-as-transactions-are-added-edited-or-deleted",
+      "title": "Implement balance calculation displaying Total Income, Total Expenses, and Current Balance (Income - Expenses) with real-time updates as transactions are added, edited, or deleted",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-dashboard-with-visual-breakdown-of-income-and-expenses-by-category-using-donut-charts-showing-percentage-distribution-matching-the-reference-image-layout-with-income-card-on-left-expenses-card-on-right-and-total-balance-prominently-displayed",
+      "title": "Create dashboard with visual breakdown of income and expenses by category using donut charts showing percentage distribution, matching the reference image layout with Income card on left, Expenses card on right, and Total Balance prominently displayed",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-transaction-list-view-displaying-all-income-and-expense-entries-with-amount-in-rupees-category-date-and-delete-functionality-with-icon-matching-the-reference-image-transaction-list-design",
+      "title": "Implement transaction list view displaying all income and expense entries with amount in rupees, category, date, and delete functionality with icon, matching the reference image transaction list design",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-modal-form-for-adding-transactions-with-fields-for-type-income-expense-dropdown-category-dropdown-amount-input-and-date-picker-with-create-button-matching-the-reference-image-modal-design",
+      "title": "Create modal form for adding transactions with fields for Type (Income/Expense dropdown), Category dropdown, Amount input, and Date picker, with CREATE button, matching the reference image modal design",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-monthly-and-yearly-financial-summaries-showing-aggregated-income-expenses-and-balance-for-selected-time-periods",
+      "title": "Implement monthly and yearly financial summaries showing aggregated income, expenses, and balance for selected time periods",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-financial-health-score-based-on-savings-ratio-savings-income-with-visual-indicator-showing-score-percentage-and-health-status",
+      "title": "Calculate and display Financial Health Score based on savings ratio (savings / income), with visual indicator showing score percentage and health status",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-search-and-filter-functionality-for-transactions-allowing-users-to-filter-by-category-date-range-transaction-type-income-expense-and-search-by-amount-or-description",
+      "title": "Implement search and filter functionality for transactions allowing users to filter by category, date range, transaction type (income/expense), and search by amount or description",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-recurring-transaction-support-allowing-users-to-set-up-automatic-repeating-income-or-expense-entries-with-configurable-frequency-daily-weekly-monthly-yearly",
+      "title": "Add recurring transaction support allowing users to set up automatic repeating income or expense entries with configurable frequency (daily, weekly, monthly, yearly)",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-budget-limit-setting-feature-allowing-users-to-set-monthly-budget-limits-per-expense-category-with-visual-progress-indicators",
+      "title": "Implement budget limit setting feature allowing users to set monthly budget limits per expense category with visual progress indicators",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-budget-exceeded-notification-system-that-displays-toast-notifications-when-user-s-spending-in-any-category-exceeds-the-set-budget-limit-and-show-relevant-contextual-notifications-for-other-financial-events",
+      "title": "Create budget exceeded notification system that displays toast notifications when user's spending in any category exceeds the set budget limit, and show relevant contextual notifications for other financial events",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-data-export-to-csv-functionality-allowing-users-to-download-their-transaction-history-with-all-fields-date-type-category-amount-description-in-csv-format",
+      "title": "Implement data export to CSV functionality allowing users to download their transaction history with all fields (date, type, category, amount, description) in CSV format",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-expense-prediction-feature-that-calculates-and-displays-predicted-expenses-for-the-next-month-based-on-average-spending-from-previous-months",
+      "title": "Create expense prediction feature that calculates and displays predicted expenses for the next month based on average spending from previous months",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-dark-and-light-mode-toggle-with-persistent-user-preference-applying-theme-consistently-across-all-components-and-views",
+      "title": "Implement dark and light mode toggle with persistent user preference, applying theme consistently across all components and views",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-fully-responsive-ui-design-that-adapts-seamlessly-to-mobile-tablet-and-desktop-screen-sizes-with-optimized-layouts-for-each-breakpoint",
+      "title": "Ensure fully responsive UI design that adapts seamlessly to mobile, tablet, and desktop screen sizes with optimized layouts for each breakpoint",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-modern-catchy-ui-with-a-creative-visual-theme-using-non-blue-purple-color-schemes-incorporating-smooth-animations-and-polished-interactions-that-create-a-premium-portfolio-ready-aesthetic",
+      "title": "Design a modern, catchy UI with a creative visual theme using non-blue-purple color schemes, incorporating smooth animations and polished interactions that create a premium, portfolio-ready aesthetic",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-incomechart-component-to-remove-or-properly-handle-the-0-display-that-appears-over-the-income-chart-visualization",
+      "title": "Fix the IncomeChart component to remove or properly handle the '0' display that appears over the income chart visualization",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-income-categories-beyond-the-current-5-categories-salary-business-investments-extra-income-deposits-to-include-additional-common-income-sources-such-as-rental-income-freelance-dividends-interest-bonuses-gifts-and-refunds",
+      "title": "Expand the income categories beyond the current 5 categories (Salary, Business, Investments, Extra income, Deposits) to include additional common income sources such as Rental Income, Freelance, Dividends, Interest, Bonuses, Gifts, and Refunds",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-expense-categories-beyond-the-current-7-categories-bills-car-clothes-travel-shopping-house-entertainment-to-include-additional-common-expense-types-such-as-food-dining-healthcare-education-insurance-utilities-subscriptions-personal-care-pets-and-miscellaneous",
+      "title": "Expand the expense categories beyond the current 7 categories (Bills, Car, Clothes, Travel, Shopping, House, Entertainment) to include additional common expense types such as Food & Dining, Healthcare, Education, Insurance, Utilities, Subscriptions, Personal Care, Pets, and Miscellaneous",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-recurring-transactions-management-page-replacing-the-current-placeholder-recurringtransactionspage-with-a-list-of-all-recurring-transactions-showing-type-category-amount-frequency-next-due-date-and-active-status-with-action-buttons-for-edit-delete-and-toggle-active-status",
+      "title": "Build recurring transactions management page replacing the current placeholder RecurringTransactionsPage with a list of all recurring transactions showing type, category, amount, frequency, next due date, and active status with action buttons for edit, delete, and toggle active status",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-add-edit-recurring-transaction-modal-with-fields-for-transaction-type-income-expense-category-dropdown-amount-description-frequency-selector-daily-weekly-monthly-yearly-start-date-optional-end-date-and-save-button",
+      "title": "Create add/edit recurring transaction modal with fields for transaction type (income/expense), category dropdown, amount, description, frequency selector (daily/weekly/monthly/yearly), start date, optional end date, and save button",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-notification-system-that-displays-toast-notifications-when-significant-income-is-added-above-a-threshold-like-10-000-rupees-when-significant-expenses-are-recorded-above-a-threshold-like-5-000-rupees-and-when-overall-balance-falls-below-a-low-threshold-like-1-000-rupees",
+      "title": "Implement notification system that displays toast notifications when significant income is added (above a threshold like 10,000 rupees), when significant expenses are recorded (above a threshold like 5,000 rupees), and when overall balance falls below a low threshold (like 1,000 rupees)",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-notification-when-recurring-transactions-are-automatically-executed-showing-the-transaction-type-category-amount-and-confirming-it-was-added-from-a-recurring-template",
+      "title": "Add notification when recurring transactions are automatically executed, showing the transaction type, category, amount, and confirming it was added from a recurring template",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-react-query-hooks-for-recurring-transactions-including-userecurringtransactions-for-fetching-all-recurring-transactions-useaddrecurringtransaction-for-creating-new-recurring-transactions-useupdaterecurringtransaction-for-editing-usedeleterecurringtransaction-for-deletion-and-usetogglerecurringtransaction-for-activating-deactivating",
+      "title": "Create React Query hooks for recurring transactions including useRecurringTransactions for fetching all recurring transactions, useAddRecurringTransaction for creating new recurring transactions, useUpdateRecurringTransaction for editing, useDeleteRecurringTransaction for deletion, and useToggleRecurringTransaction for activating/deactivating",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "JWT-based authentication system with access/refresh tokens, bcrypt password hashing, HTTP-only secure cookies, and protected routes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "User registration and login with user-specific data isolation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Income management: add, update, delete with categories (salary, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Expense management: add, update, delete with categories (food, rent, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Monthly and yearly financial summaries with balance calculation (Income - Expenses)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Financial Health Score based on savings ratio",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Search and filter transactions with MongoDB aggregation queries",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Data export to CSV functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Expense prediction for next month using average-based logic",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Responsive UI (mobile + desktop) with Dark/Light mode toggle",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Currency display in Indian Rupees (₹)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Create expense management functionality allowing users to add, update, and delete expense entries with predefined categories including Bills, Car, Clothes, Travel, Shopping, House, and Entertainment",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Fix chart display issue showing '0' over income chart",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Add more income categories beyond existing 5 categories",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Add more expense categories beyond existing 7 categories",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Create recurring transaction data model in backend with fields for transaction type (income/expense), category, amount, description, frequency (daily, weekly, monthly, yearly), start date, end date (optional), last execution date, and active status",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Implement CRUD operations for recurring transactions including create, read all for current user, update, delete, and toggle active/inactive status",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Create automatic transaction generation logic that processes active recurring transactions based on their frequency, checks if the next occurrence is due, creates actual transactions from templates, and updates the last execution date",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "MoneyFlow",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

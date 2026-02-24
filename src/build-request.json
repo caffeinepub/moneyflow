@@ -1,0 +1,192 @@
+{
+  "kind": "build_request",
+  "title": "Implement recurring transactions with smart notifications",
+  "projectName": "MoneyFlow",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-22",
+      "text": "Create recurring transaction data model in backend with fields for transaction type (income/expense), category, amount, description, frequency (daily, weekly, monthly, yearly), start date, end date (optional), last execution date, and active status",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add the recurring transactions features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores recurring transaction templates with all required fields",
+        "Each recurring transaction is associated with a specific user",
+        "Frequency options include daily, weekly, monthly, and yearly",
+        "Optional end date allows indefinite or time-bound recurrence"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Implement CRUD operations for recurring transactions including create, read all for current user, update, delete, and toggle active/inactive status",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add the recurring transactions features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can create new recurring transaction templates",
+        "Users can view all their recurring transactions",
+        "Users can edit existing recurring transactions",
+        "Users can delete recurring transactions",
+        "Users can activate or deactivate recurring transactions without deleting them"
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "Create automatic transaction generation logic that processes active recurring transactions based on their frequency, checks if the next occurrence is due, creates actual transactions from templates, and updates the last execution date",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add the recurring transactions features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "System automatically generates transactions from recurring templates when due",
+        "Daily recurring transactions create entries every day",
+        "Weekly recurring transactions create entries every 7 days",
+        "Monthly recurring transactions create entries on the same day each month",
+        "Yearly recurring transactions create entries on the same date each year",
+        "Last execution date is updated after each transaction creation",
+        "Respects end dates when specified"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Build recurring transactions management page replacing the current placeholder RecurringTransactionsPage with a list of all recurring transactions showing type, category, amount, frequency, next due date, and active status with action buttons for edit, delete, and toggle active status",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add the recurring transactions features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page displays all recurring transactions for the current user",
+        "Each entry shows transaction type, category, amount, and frequency",
+        "Shows next due date for each active recurring transaction",
+        "Visual indicator distinguishes active from inactive recurring transactions",
+        "Edit button opens modal to modify recurring transaction",
+        "Delete button removes recurring transaction with confirmation",
+        "Toggle button activates or deactivates recurring transaction"
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "Create add/edit recurring transaction modal with fields for transaction type (income/expense), category dropdown, amount, description, frequency selector (daily/weekly/monthly/yearly), start date, optional end date, and save button",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add the recurring transactions features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Modal allows creating new recurring transactions",
+        "Modal pre-fills fields when editing existing recurring transaction",
+        "Type selector switches between income and expense",
+        "Category dropdown shows appropriate categories based on type",
+        "Frequency dropdown offers daily, weekly, monthly, yearly options",
+        "Start date picker defaults to today",
+        "End date is optional with checkbox to enable/disable",
+        "Form validation ensures all required fields are filled"
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "text": "Implement notification system that displays toast notifications when significant income is added (above a threshold like 10,000 rupees), when significant expenses are recorded (above a threshold like 5,000 rupees), and when overall balance falls below a low threshold (like 1,000 rupees)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "notifiations for important ones like this much added to incomes or expenses or low overall like this"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Toast notification appears when income transaction exceeds 10,000 rupees with message showing the amount added",
+        "Toast notification appears when expense transaction exceeds 5,000 rupees with message showing the amount spent",
+        "Toast notification appears when current balance drops below 1,000 rupees with warning message",
+        "Notifications are visually distinct using appropriate colors (green for income, red for expenses, yellow for low balance)",
+        "Notifications auto-dismiss after a few seconds",
+        "Notifications stack properly when multiple occur simultaneously"
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "text": "Add notification when recurring transactions are automatically executed, showing the transaction type, category, amount, and confirming it was added from a recurring template",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "notifiations for important ones"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Toast notification displays when a recurring transaction creates a new transaction",
+        "Notification shows the transaction details (type, category, amount)",
+        "Notification indicates it was automatically added from a recurring template",
+        "User can click notification to view the created transaction"
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "text": "Create React Query hooks for recurring transactions including useRecurringTransactions for fetching all recurring transactions, useAddRecurringTransaction for creating new recurring transactions, useUpdateRecurringTransaction for editing, useDeleteRecurringTransaction for deletion, and useToggleRecurringTransaction for activating/deactivating",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add the recurring transactions features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All hooks follow the existing pattern in useQueries.ts",
+        "Hooks automatically invalidate relevant caches on mutations",
+        "Hooks display toast notifications on success and error",
+        "Hooks integrate with the useActor hook for backend communication"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify the existing transaction data structure in backend/main.mo",
+    "Maintain consistency with existing notification patterns from useBudgetNotifications.ts",
+    "Follow the existing modal design patterns from AddTransactionModal.tsx and EditTransactionModal.tsx",
+    "Use the existing theme colors and styling conventions",
+    "Ensure recurring transaction feature integrates seamlessly with existing transaction list and dashboard"
+  ],
+  "nonGoals": [
+    "Recurring transaction reminders or previews before execution",
+    "Complex scheduling rules beyond daily, weekly, monthly, yearly frequencies",
+    "Notification preferences or customizable threshold settings",
+    "Email or push notifications outside the browser",
+    "Pausing recurring transactions (only active/inactive toggle)",
+    "Historical log of executed recurring transactions"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

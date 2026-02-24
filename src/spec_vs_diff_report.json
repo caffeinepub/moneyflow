@@ -1,0 +1,54 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T05:35:00.517Z",
+  "summary": "The implementation covers most core requirements for recurring transactions with smart notifications. Backend includes recurring transaction CRUD, automatic processing logic, and migration. Frontend includes modal, management page, React Query hooks, and notification systems. Some acceptance criteria gaps exist around notification thresholds and clickable notifications.",
+  "missing_requirements": [
+    {
+      "id": "REQ-28",
+      "requirement": "User can click notification to view the created transaction",
+      "reason": "The useRecurringTransactionNotifications hook includes a 'View' button that navigates to '/transactions', but does not navigate to or highlight the specific transaction that was created. The AC requires viewing the specific created transaction, not just the transactions page.",
+      "evidence": [
+        "frontend/src/hooks/useRecurringTransactionNotifications.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Migration module for upgrading existing backend state",
+      "reason": "The migration.mo file implements data migration logic to upgrade from old actor structure to new structure with recurring transactions. This was not requested in any requirement and falls under infrastructure concerns not mentioned in the BuildRequest.",
+      "evidence": [
+        "backend/migration.mo"
+      ]
+    },
+    {
+      "description": "Periodic execution timestamp tracking (lastPeriodicExecution field)",
+      "reason": "The RecurringTransaction model includes a 'lastPeriodicExecution' field that is not specified in REQ-22's data model requirements. REQ-22 specifies lastExecutionDate but not lastPeriodicExecution as a separate field.",
+      "evidence": [
+        "backend/main.mo",
+        "backend/migration.mo"
+      ]
+    },
+    {
+      "description": "Automatic recurring transaction processing on Dashboard load",
+      "reason": "The Dashboard.tsx calls processRecurringTransactions.mutate() on component mount. While REQ-24 requires automatic transaction generation logic, it does not specify that this should be triggered on Dashboard page load. The BuildRequest does not define when/how the automatic processing should be invoked.",
+      "evidence": [
+        "frontend/src/pages/Dashboard.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.85,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/components/AddTransactionModal.tsx",
+    "frontend/src/components/RecurringTransactionModal.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useRecurringTransactionNotifications.ts",
+    "frontend/src/hooks/useTransactionNotifications.ts",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/RecurringTransactionsPage.tsx",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-recurring-transactions-management-page-replacing-the-current-placeholder-recurringtransactionspage-with-a-list-of-all-recurring-transactions-showing-type-category-amount-frequency-next-due-date-and-active-status-with-action-buttons-for-edit-delete-and-toggle-active-status",
+      "featureTitle": "Build recurring transactions management page replacing the current placeholder RecurringTransactionsPage with a list of all recurring transactions showing type, category, amount, frequency, next due date, and active status with action buttons for edit, delete, and toggle active status",
+      "files": [
+        "frontend/src/pages/RecurringTransactionsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-add-edit-recurring-transaction-modal-with-fields-for-transaction-type-income-expense-category-dropdown-amount-description-frequency-selector-daily-weekly-monthly-yearly-start-date-optional-end-date-and-save-button",
+      "featureTitle": "Create add/edit recurring transaction modal with fields for transaction type (income/expense), category dropdown, amount, description, frequency selector (daily/weekly/monthly/yearly), start date, optional end date, and save button",
+      "files": [
+        "frontend/src/components/RecurringTransactionModal.tsx",
+        "frontend/src/pages/RecurringTransactionsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-notification-system-that-displays-toast-notifications-when-significant-income-is-added-above-a-threshold-like-10-000-rupees-when-significant-expenses-are-recorded-above-a-threshold-like-5-000-rupees-and-when-overall-balance-falls-below-a-low-threshold-like-1-000-rupees",
+      "featureTitle": "Implement notification system that displays toast notifications when significant income is added (above a threshold like 10,000 rupees), when significant expenses are recorded (above a threshold like 5,000 rupees), and when overall balance falls below a low threshold (like 1,000 rupees)",
+      "files": [
+        "frontend/src/components/AddTransactionModal.tsx",
+        "frontend/src/hooks/useTransactionNotifications.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-notification-when-recurring-transactions-are-automatically-executed-showing-the-transaction-type-category-amount-and-confirming-it-was-added-from-a-recurring-template",
+      "featureTitle": "Add notification when recurring transactions are automatically executed, showing the transaction type, category, amount, and confirming it was added from a recurring template",
+      "files": [
+        "frontend/src/hooks/useRecurringTransactionNotifications.ts",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-28"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-react-query-hooks-for-recurring-transactions-including-userecurringtransactions-for-fetching-all-recurring-transactions-useaddrecurringtransaction-for-creating-new-recurring-transactions-useupdaterecurringtransaction-for-editing-usedeleterecurringtransaction-for-deletion-and-usetogglerecurringtransaction-for-activating-deactivating",
+      "featureTitle": "Create React Query hooks for recurring transactions including useRecurringTransactions for fetching all recurring transactions, useAddRecurringTransaction for creating new recurring transactions, useUpdateRecurringTransaction for editing, useDeleteRecurringTransaction for deletion, and useToggleRecurringTransaction for activating/deactivating",
+      "files": [
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-29"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
